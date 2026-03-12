@@ -12,7 +12,14 @@ services:
     volumes:
       - ./backend:/var/www
       - backend_vendor:/var/www/vendor
-    command: sh -c "if [ ! -f vendor/autoload.php ]; then composer install --no-interaction --prefer-dist; fi && php-fpm"
+    command: >
+      sh -c "
+      mkdir -p storage/logs bootstrap/cache &&
+      chown -R www-data:www-data storage bootstrap/cache &&
+      chmod -R ug+rwX storage bootstrap/cache &&
+      if [ ! -f vendor/autoload.php ]; then composer install --no-interaction --prefer-dist; fi &&
+      php-fpm
+      "
     environment:
       - APP_ENV=local
       - APP_KEY=${APP_KEY}

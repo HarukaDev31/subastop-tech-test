@@ -26,6 +26,8 @@ cp backend/.env.example backend/.env
 docker compose up -d --build
 ```
 
+Si es el primer arranque, el contenedor `app` ejecuta `composer install` automáticamente (para evitar el error `vendor/autoload.php` faltante cuando usas bind mounts).
+
 Backend: `http://localhost:8000`  
 Frontend: `http://localhost:3000`
 

@@ -106,6 +106,8 @@ services:
     environment:
       - NODE_ENV=development
       - NEXT_TELEMETRY_DISABLED=1
+      - NEXT_PUBLIC_API_KEY=${API_KEY:-changeme}
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
     depends_on:
       - nginx
     networks:

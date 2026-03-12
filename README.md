@@ -20,8 +20,9 @@ git submodule update --init --recursive
 ## Levantar todo con Docker
 
 ```bash
+cp .env.example .env
 cp backend/.env.example backend/.env
-# Ajusta API_KEY/DB_* si aplica
+# Ajusta API_KEY/DB_* si aplica (se toma desde el .env de la raíz)
 
 docker compose up -d --build
 

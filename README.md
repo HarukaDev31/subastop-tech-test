@@ -32,7 +32,14 @@ docker compose exec app php artisan migrate
 docker compose exec app php artisan db:seed
 ```
 
-Si es el primer arranque, el contenedor `app` ejecuta `composer install` automáticamente (para evitar el error `vendor/autoload.php` faltante cuando usas bind mounts).
+Nota: el contenedor `app` ejecuta `composer install` al arrancar (incluye `require-dev` para que funcionen los seeders).
+
+Si vienes de una versión anterior del compose y te falla Faker o permisos, haz un reset completo:
+
+```bash
+docker compose down -v
+docker compose up -d --build
+```
 
 Backend: `http://localhost:8000`  
 Frontend: `http://localhost:3000`

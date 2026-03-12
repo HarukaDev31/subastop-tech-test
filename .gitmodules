@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = https://github.com/HarukaDev31/subastop-tech-test-back.git
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/HarukaDev31/subastop-tech-test-front.git
